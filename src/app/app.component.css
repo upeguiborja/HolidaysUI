@@ -1,0 +1,25 @@
+.app-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-toolbar .app-title {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  color: #005cbb;
+}
+
+.app-toolbar .app-icon {
+  background-color: #005cbb;
+  color: #fbfbff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

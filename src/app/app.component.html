@@ -1,7 +1,11 @@
-<mat-toolbar
-  title="Festivos en Colombia"
-  class="mat-toolbar mat-toolbar-single-row mat-elevation-z5"
->
-  <h1>Festivos en Colombia</h1>
+<mat-toolbar title="Festivos en Colombia" color="primary" class="app-toolbar">
+  <div class="app-title">
+    <mat-icon fontIcon="surfing" class="app-icon"></mat-icon>
+    <span class="mat-title-medium">Festivos en Colombia</span>
+  </div>
+  <nav>
+    <a mat-button color="primary" href="/">Verificar</a>
+    <a mat-button color="primary" href="/list">Lista</a>
+  </nav>
 </mat-toolbar>
 <router-outlet></router-outlet>
