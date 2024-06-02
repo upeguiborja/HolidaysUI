@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HolidaysComponent } from './holidays.component';
+import { ValidarFestivoComponent } from './validar-festivo.component';
 
-describe('HolidaysComponent', () => {
-  let component: HolidaysComponent;
-  let fixture: ComponentFixture<HolidaysComponent>;
+describe('ValidarFestivoComponent', () => {
+  let component: ValidarFestivoComponent;
+  let fixture: ComponentFixture<ValidarFestivoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HolidaysComponent]
+      imports: [ValidarFestivoComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(HolidaysComponent);
+    fixture = TestBed.createComponent(ValidarFestivoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -10,5 +10,5 @@ import { MaterialModule } from './shared/modules/material/material.module';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'HolidaysUI';
+  title = 'Festivos en Colombia';
 }
