@@ -1,0 +1,38 @@
+.app-card {
+  box-shadow: none;
+  display: flex;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.app-card-emoji {
+  width: 80px;
+  height: 80px;
+}
+
+.app-card-title {
+  font-size: 32px;
+  color: #005cbb;
+}
+
+.app-header-holiday {
+  background-color: transparent;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.app-card-actions {
+  margin-top: 24px;
+}
+
+.app-card-input,
+.app-card-actions-button {
+  width: 100%;
+}
+
+.app-card-content {
+  margin-top: 24px;
+}

@@ -23,3 +23,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.app-main-container {
+  background-color: #dae2f9;
+  display: flex;
+  flex: 1 1 100%;
+  justify-content: center;
+  align-items: center;
+}

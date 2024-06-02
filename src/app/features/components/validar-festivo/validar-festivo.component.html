@@ -1,9 +1,21 @@
-<div>
-  <mat-form-field>
-    <mat-label>Escoge una fecha</mat-label>
-    <input matInput [matDatepicker]="picker" placeholder="Fecha" />
-    <mat-hint>YYYY-MM-DD</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-</div>
+<mat-card class="app-card">
+  <mat-card-header class="app-header-holiday">
+    <img src="assets/partying-face.png" class="app-card-emoji" />
+    <span class="app-card-title">¡El Lunes 23 de Marzo es festivo!</span>
+  </mat-card-header>
+
+  <mat-card-content class="app-card-content">
+    <mat-form-field class="app-card-input">
+      <mat-label>Fecha</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-hint>Escoge el el dia que quieres consultar.</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </mat-card-content>
+
+  <mat-card-actions class="app-card-actions">
+    <button mat-flat-button class="app-card-actions-button">Validar</button>
+  </mat-card-actions>
+</mat-card>
