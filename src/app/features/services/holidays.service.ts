@@ -6,14 +6,14 @@ import { Observable, map } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class FestivosService {
+export class HolidaysService {
   public url: string;
 
   constructor(private http: HttpClient) {
     this.url = `${environment.holidayApiUrl}/festivos`;
   }
 
-  public verificarFestivo(date: Date): Observable<boolean> {
+  public checkHoliday(date: Date): Observable<boolean> {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();

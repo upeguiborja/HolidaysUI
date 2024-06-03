@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../shared/modules/material/material.module';
 import { FormControl } from '@angular/forms';
-import { FestivosService } from '../../services/festivos.service';
+import { HolidaysService } from '../../services/holidays.service';
 import { delay } from 'rxjs';
 
 type Status = 'LOADING' | 'LOADED' | 'ERROR';
@@ -19,7 +19,7 @@ export class CheckHolidayComponent {
   public isHoliday: boolean = false;
   public formattedDate = '';
 
-  constructor(private festivosService: FestivosService) {}
+  constructor(private holidaysService: HolidaysService) {}
 
   ngOnInit() {
     this.onVerify();
@@ -28,8 +28,8 @@ export class CheckHolidayComponent {
   public onVerify() {
     this.status = 'LOADING';
     if (!this.date.value) return;
-    this.festivosService
-      .verificarFestivo(this.date.value)
+    this.holidaysService
+      .checkHoliday(this.date.value)
       .pipe(delay(500)) // Simulamos un delay de 500ms para que se vea el spinner.
       .subscribe({
         next: (isHoliday) => {
