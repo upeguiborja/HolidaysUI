@@ -14,8 +14,9 @@
   </div>
 
   <mat-card-content>
+    @if (rows.length > 0) {
     <ngx-datatable
-      class="dark"
+      class="dark app-card-table"
       [rows]="rows"
       [columns]="columns"
       [headerHeight]="50"
@@ -23,6 +24,7 @@
       [rowHeight]="50"
       columnMode="flex"
     ></ngx-datatable>
+    }
 
     <mat-card-actions class="app-card-actions">
       <mat-form-field class="app-card-input">

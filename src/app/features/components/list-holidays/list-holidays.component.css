@@ -11,6 +11,18 @@
   }
 }
 
+.app-card-table {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #dddddd transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .app-card-table {
+    max-height: 250px;
+  }
+}
+
 .app-card-emoji {
   width: 80px;
   height: 80px;
