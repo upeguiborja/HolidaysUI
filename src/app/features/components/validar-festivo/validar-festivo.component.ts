@@ -17,6 +17,7 @@ export class ValidarFestivoComponent {
   public date = new FormControl(new Date());
   public status: Status = 'LOADING';
   public isHoliday: boolean = false;
+  public formattedDate = '';
 
   constructor(private festivosService: FestivosService) {}
 
@@ -32,6 +33,7 @@ export class ValidarFestivoComponent {
       .pipe(delay(500)) // Simulamos un delay de 500ms para que se vea el spinner.
       .subscribe({
         next: (isHoliday) => {
+          this.formatDate();
           this.isHoliday = isHoliday;
           this.status = 'LOADED';
         },
@@ -42,10 +44,10 @@ export class ValidarFestivoComponent {
       });
   }
 
-  public get formattedDate() {
+  public formatDate() {
     const date = this.date.value as Date;
     console.log(date);
-    return date.toLocaleString('es-CO', {
+    this.formattedDate = date.toLocaleString('es-CO', {
       weekday: 'long',
       day: '2-digit',
       month: 'long',

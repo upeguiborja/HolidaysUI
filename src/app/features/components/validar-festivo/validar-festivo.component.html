@@ -4,7 +4,7 @@
     <mat-spinner></mat-spinner>
     } @case ("LOADED") { @if (isHoliday) {
     <img src="assets/partying-face.png" class="app-card-emoji" />
-    <span class="app-card-title">¡El Lunes 23 de Marzo es festivo!</span>
+    <span class="app-card-title">¡El {{ formattedDate }} es festivo!</span>
     } @else {
     <img src="assets/frowning-face.png" class="app-card-emoji" />
     <span class="app-card-title">¡El {{ formattedDate }} NO es festivo!</span>
