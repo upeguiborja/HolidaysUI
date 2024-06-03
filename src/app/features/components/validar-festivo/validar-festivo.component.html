@@ -1,8 +1,17 @@
 <mat-card class="app-card">
   <mat-card-header class="app-header-holiday">
+    @switch (status) { @case ("LOADING") {
+    <mat-spinner></mat-spinner>
+    } @case ("LOADED") { @if (isHoliday) {
     <img src="assets/partying-face.png" class="app-card-emoji" />
     <span class="app-card-title">¡El Lunes 23 de Marzo es festivo!</span>
-    <mat-spinner></mat-spinner>
+    } @else {
+    <img src="assets/frowning-face.png" class="app-card-emoji" />
+    <span class="app-card-title">¡El {{ formattedDate }} NO es festivo!</span>
+    } } @case ("ERROR") {
+    <img src="assets/fire.png" class="app-card-emoji" />
+    <span class="app-card-title">¡Ups! Algo salió mal.</span>
+    } }
   </mat-card-header>
 
   <mat-card-content class="app-card-content">
@@ -17,6 +26,12 @@
   </mat-card-content>
 
   <mat-card-actions class="app-card-actions">
-    <button mat-flat-button class="app-card-actions-button">Validar</button>
+    <button
+      mat-flat-button
+      class="app-card-actions-button"
+      (click)="onVerify()"
+    >
+      Validar
+    </button>
   </mat-card-actions>
 </mat-card>
