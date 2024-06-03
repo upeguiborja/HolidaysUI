@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../shared/modules/material/material.module';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { HolidaysService } from '../../services/holidays.service';
 import { delay } from 'rxjs';
 

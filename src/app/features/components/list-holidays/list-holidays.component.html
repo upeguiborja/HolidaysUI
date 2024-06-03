@@ -1,0 +1,34 @@
+<mat-card class="app-card">
+  <div class="app-header-holiday">
+    <img src="assets/party-popper.png" class="app-card-emoji" />
+    <span class="app-card-title">Días festivos para el año 2024</span>
+  </div>
+
+  <mat-card-content>
+    <ngx-datatable
+      class="dark"
+      [rows]="rows"
+      [columns]="columns"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      [rowHeight]="50"
+      columnMode="flex"
+    ></ngx-datatable>
+
+    <mat-card-actions class="app-card-actions">
+      <mat-form-field class="app-card-input">
+        <mat-label>Año</mat-label>
+        <input matInput [matDatepicker]="picker" [formControl]="date" />
+        <mat-hint>Escoge el el año que quieres consultar.</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker
+          #picker
+          startView="multi-year"
+          (yearSelected)="onSelectYear($event, picker)"
+        ></mat-datepicker>
+      </mat-form-field>
+      <button mat-flat-button class="app-card-actions-button">Consultar</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
