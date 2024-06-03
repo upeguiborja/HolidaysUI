@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { ValidarFestivoComponent } from './features/components/validar-festivo/validar-festivo.component';
+import { CheckHolidayComponent } from './features/components/check-holiday/check-holiday.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: ValidarFestivoComponent,
+    component: CheckHolidayComponent,
   },
   {
     path: '**',

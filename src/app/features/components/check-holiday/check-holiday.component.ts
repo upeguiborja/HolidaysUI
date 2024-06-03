@@ -7,13 +7,13 @@ import { delay } from 'rxjs';
 type Status = 'LOADING' | 'LOADED' | 'ERROR';
 
 @Component({
-  selector: 'app-validar-festivo',
+  selector: 'app-check-holiday',
   standalone: true,
   imports: [MaterialModule],
-  templateUrl: './validar-festivo.component.html',
-  styleUrl: './validar-festivo.component.css',
+  templateUrl: './check-holiday.component.html',
+  styleUrl: './check-holiday.component.css',
 })
-export class ValidarFestivoComponent {
+export class CheckHolidayComponent {
   public date = new FormControl(new Date());
   public status: Status = 'LOADING';
   public isHoliday: boolean = false;
