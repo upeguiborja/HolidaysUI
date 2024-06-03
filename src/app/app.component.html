@@ -4,8 +4,24 @@
     <span class="mat-title-medium">Festivos en Colombia</span>
   </div>
   <nav>
-    <a mat-button color="primary" href="/">Verificar</a>
-    <a mat-button color="primary" href="/list">Lista</a>
+    <a
+      mat-button
+      color="primary"
+      routerLink="/"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      Verificar
+    </a>
+    <a
+      mat-button
+      color="primary"
+      routerLink="/list"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      Lista
+    </a>
   </nav>
 </mat-toolbar>
 <main class="app-main-container">

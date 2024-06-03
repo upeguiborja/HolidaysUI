@@ -10,6 +10,8 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   exports: [
@@ -20,6 +22,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatToolbarModule,
     MatDatepickerModule,
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     provideNativeDateAdapter(),
