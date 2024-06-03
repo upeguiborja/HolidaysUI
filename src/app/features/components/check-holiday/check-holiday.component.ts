@@ -3,6 +3,7 @@ import { MaterialModule } from '../../../shared/modules/material/material.module
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { HolidaysService } from '../../services/holidays.service';
 import { delay } from 'rxjs';
+import { DateAdapter } from '@angular/material/core';
 
 type Status = 'LOADING' | 'LOADED' | 'ERROR';
 
@@ -19,7 +20,10 @@ export class CheckHolidayComponent {
   public isHoliday: boolean = false;
   public formattedDate = '';
 
-  constructor(private holidaysService: HolidaysService) {}
+  constructor(
+    private holidaysService: HolidaysService,
+    private dateAdapter: DateAdapter<Date>
+  ) {}
 
   ngOnInit() {
     this.onVerify();
@@ -47,10 +51,6 @@ export class CheckHolidayComponent {
   public formatDate() {
     const date = this.date.value as Date;
     console.log(date);
-    this.formattedDate = date.toLocaleString('es-CO', {
-      weekday: 'long',
-      day: '2-digit',
-      month: 'long',
-    });
+    this.formattedDate = this.dateAdapter.format(date, "iiii d 'de' MMMM");
   }
 }

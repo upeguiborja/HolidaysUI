@@ -2,27 +2,27 @@ import { Component } from '@angular/core';
 import { MaterialModule } from '../../../shared/modules/material/material.module';
 import { NgxDatatableModule, TableColumn } from '@swimlane/ngx-datatable';
 import { MatDatepicker } from '@angular/material/datepicker';
-import {
-  NativeDateAdapter,
-  provideNativeDateAdapter,
-} from '@angular/material/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 
 @Component({
   selector: 'app-list-holidays',
   standalone: true,
   providers: [
-    provideNativeDateAdapter({
-      display: {
-        dateInput: 'YYYY',
-        monthYearLabel: 'YYYY',
-        dateA11yLabel: 'YYYY',
-        monthYearA11yLabel: 'YYYY',
+    {
+      provide: MAT_DATE_FORMATS,
+      useValue: {
+        parse: {
+          dateInput: 'P',
+        },
+        display: {
+          dateInput: 'yyyy',
+          monthYearLabel: 'yyyy',
+          dateA11yLabel: 'LL',
+          monthYearA11yLabel: 'MMMM yyyy',
+        },
       },
-      parse: {
-        dateInput: 'YYYY',
-      },
-    }),
+    },
   ],
   imports: [ReactiveFormsModule, MaterialModule, NgxDatatableModule],
   templateUrl: './list-holidays.component.html',
@@ -42,10 +42,14 @@ export class ListHolidaysComponent {
     { prop: 'date', name: 'Fecha', flexGrow: 1 },
   ];
 
-  public onSelectYear(
-    newDate: Date,
-    datePicker: MatDatepicker<NativeDateAdapter>
-  ): void {
+  constructor(private _adapter: DateAdapter<any>) {}
+
+  public onSelectDate(newDate: Date, datePicker: MatDatepicker<Date>): void {
+    this.date.setValue(newDate);
     datePicker.close();
+  }
+
+  public get year(): number {
+    return this._adapter.getYear(this.date.value);
   }
 }

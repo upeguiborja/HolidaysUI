@@ -25,7 +25,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatProgressSpinnerModule,
   ],
   providers: [
-    provideNativeDateAdapter(),
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: { appearance: 'outline' },
