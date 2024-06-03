@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../shared/modules/material/material.module';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HolidaysService } from '../../services/holidays.service';
 import { delay } from 'rxjs';
 
@@ -9,7 +9,7 @@ type Status = 'LOADING' | 'LOADED' | 'ERROR';
 @Component({
   selector: 'app-check-holiday',
   standalone: true,
-  imports: [MaterialModule],
+  imports: [ReactiveFormsModule, MaterialModule],
   templateUrl: './check-holiday.component.html',
   styleUrl: './check-holiday.component.css',
 })

@@ -23,8 +23,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     MatDatepickerModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule,
-    FormsModule,
   ],
   providers: [
     provideNativeDateAdapter(),
