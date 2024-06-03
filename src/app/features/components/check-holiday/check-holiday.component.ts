@@ -50,7 +50,6 @@ export class CheckHolidayComponent {
 
   public formatDate() {
     const date = this.date.value as Date;
-    console.log(date);
     this.formattedDate = this.dateAdapter.format(date, "iiii d 'de' MMMM");
   }
 }

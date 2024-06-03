@@ -1,7 +1,16 @@
 <mat-card class="app-card">
   <div class="app-header-holiday">
+    @switch (status) { @case ("LOADING") {
+    <mat-spinner></mat-spinner>
+    } @case ("LOADED") {
     <img src="assets/party-popper.png" class="app-card-emoji" />
-    <span class="app-card-title">Días festivos para el año {{ year }}</span>
+    <span class="app-card-title"
+      >Días festivos para el año {{ currentYear }}</span
+    >
+    } @case ("ERROR") {
+    <img src="assets/fire.png" class="app-card-emoji" />
+    <span class="app-card-title">¡Ups! Algo salió mal.</span>
+    } }
   </div>
 
   <mat-card-content>
@@ -26,9 +35,16 @@
           #picker
           startView="multi-year"
           (yearSelected)="onSelectDate($event, picker)"
-        ></mat-datepicker>
+        >
+        </mat-datepicker>
       </mat-form-field>
-      <button mat-flat-button class="app-card-actions-button">Consultar</button>
+      <button
+        mat-flat-button
+        class="app-card-actions-button"
+        (click)="onList()"
+      >
+        Consultar
+      </button>
     </mat-card-actions>
   </mat-card-content>
 </mat-card>

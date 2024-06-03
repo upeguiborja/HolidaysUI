@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { Holiday } from '../../core/entities/Holiday';
 
 @Injectable({
   providedIn: 'root',
@@ -23,5 +24,9 @@ export class HolidaysService {
         responseType: 'text',
       })
       .pipe(map((response) => response?.toLowerCase() === 'es festivo'));
+  }
+
+  public listHolidays(year: number): Observable<Holiday[]> {
+    return this.http.get<Holiday[]>(`${this.url}/obtener/${year}`);
   }
 }

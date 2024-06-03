@@ -4,6 +4,11 @@ import { NgxDatatableModule, TableColumn } from '@swimlane/ngx-datatable';
 import { MatDatepicker } from '@angular/material/datepicker';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { HolidaysService } from '../../services/holidays.service';
+import { Holiday } from '../../../core/entities/Holiday';
+import { delay } from 'rxjs';
+
+type Status = 'LOADING' | 'LOADED' | 'ERROR';
 
 @Component({
   selector: 'app-list-holidays',
@@ -29,27 +34,54 @@ import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
   styleUrl: './list-holidays.component.css',
 })
 export class ListHolidaysComponent {
+  public status: Status = 'LOADING';
   public date = new FormControl(new Date());
-
-  public rows = [
-    { date: '2021-01-01', festivo: 'Año Nuevo' },
-    { date: '2021-01-11', festivo: 'Día de los Reyes Magos' },
-    { date: '2021-03-22', festivo: 'Día de San José' },
-  ];
-
+  public rows: Holiday[] = [];
   public columns: TableColumn[] = [
     { prop: 'festivo', name: 'Festivo', flexGrow: 1 },
-    { prop: 'date', name: 'Fecha', flexGrow: 1 },
+    { prop: 'fecha', name: 'Fecha', flexGrow: 1 },
   ];
 
-  constructor(private _adapter: DateAdapter<any>) {}
+  constructor(
+    private holidaysService: HolidaysService,
+    private dateAdapter: DateAdapter<any>
+  ) {}
 
   public onSelectDate(newDate: Date, datePicker: MatDatepicker<Date>): void {
     this.date.setValue(newDate);
     datePicker.close();
   }
 
+  ngOnInit() {
+    this.onList();
+  }
+
+  public onList() {
+    if (!this.date.value) return;
+    this.status = 'LOADING';
+    this.rows = [];
+    this.holidaysService
+      .listHolidays(this.year)
+      .pipe(delay(500))
+      .subscribe({
+        next: (holidays) => {
+          this.rows = holidays;
+          this.status = 'LOADED';
+        },
+        error: (err) => {
+          console.error(err);
+          this.status = 'ERROR';
+        },
+      });
+  }
+
+  public get currentYear(): number {
+    return this.dateAdapter.getYear(
+      this.dateAdapter.parse(this.rows[0].fecha, 'yyyy-MM-dd')
+    );
+  }
+
   public get year(): number {
-    return this._adapter.getYear(this.date.value);
+    return this.dateAdapter.getYear(this.date.value);
   }
 }
