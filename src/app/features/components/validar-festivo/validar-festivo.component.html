@@ -1,5 +1,5 @@
 <mat-card class="app-card">
-  <mat-card-header class="app-header-holiday">
+  <div class="app-header-holiday">
     @switch (status) { @case ("LOADING") {
     <mat-spinner></mat-spinner>
     } @case ("LOADED") { @if (isHoliday) {
@@ -12,7 +12,7 @@
     <img src="assets/fire.png" class="app-card-emoji" />
     <span class="app-card-title">¡Ups! Algo salió mal.</span>
     } }
-  </mat-card-header>
+  </div>
 
   <mat-card-content class="app-card-content">
     <mat-form-field class="app-card-input">
